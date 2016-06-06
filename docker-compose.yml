@@ -1,0 +1,16 @@
+version: '2'
+services:
+  rexray:
+    privileged: true
+#    restart: always
+    build: .
+    image: fritzfritz/rexray
+    ports:
+      - "7979"
+    volumes:
+      - /etc/rexray:/etc/rexray
+      - /var/lib/rexray:/var/lib/rexray:shared
+      - /var/run/rexray:/var/run/rexray
+      - /var/log/rexray:/var/log/rexray
+      - /run/docker/plugins:/run/docker/plugins
+      - /dev:/dev
