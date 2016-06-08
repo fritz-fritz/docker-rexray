@@ -1,10 +1,8 @@
-version: '2'
-services:
-  rexray:
+rexray:
     privileged: true
-#    restart: always
+    restart: always
     build: .
-    image: fritzfritz/rexray
+    pid: 'host'
     ports:
       - "7979"
     volumes:
@@ -14,3 +12,6 @@ services:
       - /var/log/rexray:/var/log/rexray
       - /run/docker/plugins:/run/docker/plugins
       - /dev:/dev
+    labels:
+      - io.rancher.os.scope=system
+      - io.rancher.scheduler.global=true
