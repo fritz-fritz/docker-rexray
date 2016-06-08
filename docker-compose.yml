@@ -1,9 +1,9 @@
 rexray:
     privileged: true
     restart: always
-    build: .
+    build: https://raw.githubusercontent.com/fritz-fritz/docker-rexray/master/Dockerfile
     pid: 'host'
-    ports:
+    expose:
       - "7979"
     volumes:
       - /etc/rexray:/etc/rexray
@@ -15,3 +15,4 @@ rexray:
     labels:
       - io.rancher.os.scope=system
       - io.rancher.scheduler.global=true
+      - io.rancher.os.before=console
